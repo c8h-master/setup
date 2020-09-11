@@ -1,0 +1,51 @@
+#! /bin/bash
+
+
+
+
+mainmenu(){
+echo -ne "\033]0;Setup(uAlwan)\007"
+clear
+figlet -f ~/.local/share/fonts/3d.flf "      uAlwan" | lolcat
+printf "\n\n\n      \e[1;91m[\e[0m\e[1;39m1\e[91m]  \e[1;96m\e[39m\e[1;39m Are You : \n\n"
+printf "\n\n      \e[1;91m[\e[0m\e[1;39mi\e[91m]  \e[1;96m\e[39m\e[1;39m \e[1;31mi\e[1;39mnstalling tool \n"
+printf "\n\n      \e[1;91m[\e[0m\e[1;39mu\e[91m]  \e[1;96m\e[39m\e[1;39m \e[1;31mu\e[1;39mpdating tool \n"
+printf "\n\n      \e[1;91m[\e[0m\e[1;39mp\e[91m]  \e[1;96m\e[39m\e[1;39m \e[1;31mp\e[1;39mass setup \n"
+printf "\n\n\n      \e[1;91m[\e[0m\e[1;39m&&\e[91m] \e[1;96m\e[39m\e[1;39m Use \e[1;31mi\e[1;39m for the first time \e[1;31m!!!\e[1;39m\n"
+printf '''\n\n      \e[1;31m┌─[uAlwan\e[1;93m@\e[1;96mKali\e[1;31m]─[\e[1;96m~\e[1;31m]
+      └──╼ \e[1;93m#\e[1;0m'''
+read -p "" ui
+if [[ $ui == "i" ]]; then
+cd ../../../../../..
+cd /usr/bin
+git clone $LINK_FOR_uAlwan_GITHUB
+clear
+figlet -f ~/.local/share/fonts/3d.flf "      uAlwan" | lolcat
+printf "\n\n\n      \e[1;91m[\e[0m\e[1;39m1\e[91m]  \e[1;96m\e[39m\e[1;39m Donee \e[1;31m!!!\e[1;39m\n"
+printf "\n\n\n      \e[1;91m[\e[0m\e[1;39m1\e[91m]  \e[1;96m\e[39m\e[1;39m Running ./run \e[1;31m!!!\e[1;39m\n"
+sleep 3
+elif [[ $ui == "u" ]]; then
+
+cd ../../../../../..
+cd /usr/bin
+rm -r uAlwan
+git clone $LINK_FOR_uAlwan_GITHUB
+
+clear
+figlet -f ~/.local/share/fonts/3d.flf "      uAlwan" | lolcat
+printf "\n\n\n      \e[1;91m[\e[0m\e[1;39m1\e[91m]  \e[1;96m\e[39m\e[1;39m Donee \e[1;31m!!!\e[1;39m\n"
+sleep 3
+clear
+elif [[ $ui == "p" ]]; then
+continue
+else
+printf "\n\n\n      \e[1;91m[\e[0m\e[1;39m1\e[91m]  \e[1;96m\e[39m\e[1;39mInvalid Input"
+./setup
+fi
+cd run_me
+chmod +x *
+./run
+}
+git clone https://github.com/c8h-master/run_me.git
+mainmenu
+
